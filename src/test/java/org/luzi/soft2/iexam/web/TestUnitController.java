@@ -27,8 +27,8 @@ public class TestUnitController {
 	private MockMvc mvc;
 //	 @Autowired
 //	 WebApplicationContext applicationContext;
-	 @MockBean
-	 private UnitRepository service;
+//	 @MockBean
+//	 private UnitRepository service;
 	private Unit p;
 
 	@Test
