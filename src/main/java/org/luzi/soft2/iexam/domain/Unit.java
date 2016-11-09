@@ -22,23 +22,24 @@ public class Unit implements Serializable {
 	@Id
 	@GeneratedValue
 	public Long id;
-//	@Column
-//	public Long parentId;
+	
 	@Column(nullable = false)
 	public String title;
+	
 	@Column
 	public String description;
+	
 	@Column
 	public String icon;
-	
-	/**父组织*/
-    @ManyToOne
-    @JoinColumn(name="parent_id")
-    public Unit parent;
-    
-    /**子组织*/
-    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-    @JoinColumn(name="parent_id")
-    public Set<Unit> children = new HashSet<Unit>();
+
+	/** 父组织 */
+	@ManyToOne
+	@JoinColumn(name = "parent_id")
+	public Unit parent;
+
+	/** 子组织 */
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "parent_id")
+	public Set<Unit> children = new HashSet<Unit>();
 
 }
