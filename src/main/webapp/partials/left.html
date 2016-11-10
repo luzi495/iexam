@@ -1,0 +1,51 @@
+<!--�ļ���-->
+<div class="panel panel-default" ng-controller="TreeCtrl">
+	<div class="panel-heading">
+		<div class="pull-right btn-group">
+			<button class="btn btn-default"
+				ng-click="show_page_glyph2=!show_page_glyph2">
+				<span class="glyphicon glyphicon-minus" ng-hide="show_page_glyph2"></span>
+				<span class="glyphicon glyphicon-plus" ng-hide="!show_page_glyph2"></span>
+			</button>
+		</div>
+		<h3 class="panel-title">目录</h3>
+
+		<div style="clear: both;"></div>
+	</div>
+	<div class="panel-body" ng-hide="show_page_glyph2">
+		<!-- as a Dom element -->
+		<treecontrol class="tree-boot" tree-model="dataForTheTree"
+			options="treeOptions" on-selection="showSelected(node)"
+			selected-node="node1">
+		<div ng-mouseover="node.mouseover=true"
+			ng-mouseleave="node.mouseover=false">
+			<label ng-hide="node.modTitle">{{node.title}}</label> <input
+				ng-model="node.title" ng-hide="!node.modTitle"
+				ng-click="$event.stopPropagation();">
+
+			<div class="btn-group btn-group-xs"
+				ng-click="$event.stopPropagation();" ng-hide="!node.mouseover">
+				<button type="button" class="btn btn-success"
+					ng-click="addChildNode(node)" ng-hide="node.modTitle">
+					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+				<button type="button" class="btn btn-danger"
+					ng-click="removeNode(node)" ng-hide="node.modTitle">
+					<span class="glyphicon glyphicon-remove"></span>
+				</button>
+				<button type="button"
+					class="btn {{node.modTitle?'btn-success':'btn-primary'}}"
+					ng-click="node.modTitle=!node.modTitle">
+					<span
+						class="glyphicon {{node.modTitle?'glyphicon-ok':'glyphicon-pencil'}}"></span>
+				</button>
+				<!--<button type="button" class="btn btn-success" ng-click="node.modTitle=false"-->
+				<!--ng-hide="!node.modTitle">-->
+				<!--<span class="glyphicon glyphicon-ok"></span>-->
+				<!--</button>-->
+			</div>
+		</div>
+		</treecontrol>
+
+	</div>
+</div>
