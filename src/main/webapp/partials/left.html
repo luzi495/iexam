@@ -1,4 +1,3 @@
-<!--�ļ���-->
 <div class="panel panel-default" ng-controller="TreeCtrl">
 	<div class="panel-heading">
 		<div class="pull-right btn-group">
@@ -19,9 +18,9 @@
 			selected-node="node1">
 		<div ng-mouseover="node.mouseover=true"
 			ng-mouseleave="node.mouseover=false">
-			<label ng-hide="node.modTitle">{{node.title}}</label> <input
-				ng-model="node.title" ng-hide="!node.modTitle"
-				ng-click="$event.stopPropagation();">
+			<label ng-hide="node.modTitle">{{node.title}}</label>
+			<textarea ng-model="node.title" ng-hide="!node.modTitle"
+				ng-click="$event.stopPropagation();"></textarea>
 
 			<div class="btn-group btn-group-xs"
 				ng-click="$event.stopPropagation();" ng-hide="!node.mouseover">
