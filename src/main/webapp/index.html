@@ -1,10 +1,63 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html style="height: 100%;">
 <head>
 <meta charset="UTF-8">
-<title>主页</title>
+<title>index</title>
+<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css"
+	rel="stylesheet">
+<link href="css/tree-control.css" rel="stylesheet">
+<link href="css/tree-control-attribute.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 </head>
-<body>
 
+<body style="height: 100%;">
+	<div ng-controller="RootCtrl" style="height: 100%;">
+		<!--left-->
+		<div class="col-sm-3" style="height: 100%; overflow: scroll;"
+			ng-hide="show_page_glyph7">
+			<div ng-include="'partials/left.html'"></div>
+		</div>
+		<!--main-->
+		<div class="{{show_page_glyph7?col-sm-12:'col-sm-9'}}"
+			style="height: 100%; overflow: hidden;">
+			<div class="panel panel-default" style="height: 100%;">
+				<!--slider-->
+				<div class="panel-heading">
+					<!--<div class="col-sm-1 pull-left">-->
+					<!--工作区-->
+					<!--</div>-->
+
+					<div class="col-sm-1 pull-left">
+						<button class="btn btn-default"
+							ng-click="show_page_glyph7=!show_page_glyph7">
+							<span class="glyphicon glyphicon-chevron-left"
+								ng-hide="show_page_glyph7"></span> <span
+								class="glyphicon glyphicon-chevron-right"
+								ng-hide="!show_page_glyph7"></span>
+						</button>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+				<!--mian area-->
+				<div class="panel-body" style="height: 100%;">
+					<div ng-include="'partials/main.html'"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- jquery -->
+	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+	<script
+		src="http://cdn.bootcss.com/angular-tree-control/0.2.28/angular-tree-control.js"></script>
+	<script src="js/angular-uuid2.js"></script>
+	<!-- https://github.com/gsklee/ngStorage -->
+	<script src="http://cdn.bootcss.com/ngStorage/0.3.11/ngStorage.js"></script>
+
+	<!--logic-->
+	<script src="js/app.js"></script>
+	<script src="js/rootCtrl.js"></script>
 </body>
 </html>
