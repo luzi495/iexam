@@ -47,7 +47,7 @@
 			</div>
 		</div>
 		<!--Category-->
-		<div class="modal fade" id="categoryModal" tabindex="-2" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
+		<div ng-controller="CategoryCtrl" class="modal fade" id="categoryModal" tabindex="-2" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<!--<div class="modal-header">-->
@@ -57,7 +57,6 @@
 					<div class="modal-body" ng-include="'partials/category.html'"></div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-						<button type="button" class="btn btn-primary">保存</button>
 					</div>
 				</div>
 			</div>
@@ -79,5 +78,6 @@
 	<script src="js/app.js"></script>
 	<script src="js/rootCtrl.js"></script>
 	<script src="js/treeCtrl.js"></script>
+	<script src="js/categoryCtrl.js"></script>
 </body>
 </html>

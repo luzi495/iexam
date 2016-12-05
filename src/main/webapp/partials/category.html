@@ -10,84 +10,46 @@
     </div>
     <div class="panel-body" >
         <div class="container-fluid">
-            <div class="row">
+            <!--类目-->
+            <div class="row" ng-repeat="i in categorys">
                 <div class="col-md-12">
                     <h3>
                         <span class="glyphicon glyphicon-adjust"></span>
                         <span class="glyphicon glyphicon-star"></span>
-                        <a href="#" data-toggle="modal" data-target="#editCategoryModal">类目1</a>
+                        <a href="#" data-toggle="modal" data-target="#editCategoryModal" ng-click="category.ini(i)">{{i.name}}</a>
                         &nbsp;&nbsp;
                         <label class="note">1个月前&nbsp;&nbsp;11小时</label>
                         &nbsp;&nbsp;
                         <span class="btn-group">
-                            <button class="btn btn-default">
+                            <button class="btn btn-default" ng-click="category.del(i)">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
-                            <button class="btn btn-default">
+                            <button class="btn btn-default" ng-click="subCategory.ini(i)" data-toggle="modal" data-target="#editSubCategoryModal">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </button>
                         </span>
                     </h3>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>
-                        <span class="glyphicon glyphicon-adjust"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <a href="#" >子目录1</a>
-                        <div class="btn-group btn-group-xs">
-                            <button class="btn btn-default">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </div>
-                        <p class="note">1个月前&nbsp;&nbsp;11小时</p>
-                    </h5>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                        <span class="glyphicon glyphicon-adjust"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <a href="#" >子目录2</a>
-                        <div class="btn-group btn-group-xs">
-                            <button class="btn btn-default">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </div>
-                        <p class="note">1个月前&nbsp;&nbsp;11小时</p>
-                    </h5>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                        <span class="glyphicon glyphicon-adjust"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <a href="#" >子目录3</a>
-                        <div class="btn-group btn-group-xs">
-                            <button class="btn btn-default">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </div>
-                        <p class="note">1个月前&nbsp;&nbsp;11小时</p>
-                    </h5>
-                </div>
-                <div class="col-md-3">
-                    <h5>
-                        <span class="glyphicon glyphicon-adjust"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <a href="#" >子目录4</a>
-                        <div class="btn-group btn-group-xs">
-                            <button class="btn btn-default">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </div>
-                        <p class="note">1个月前&nbsp;&nbsp;11小时</p>
-                    </h5>
+                <!--子类目-->
+                <div class="col-md-3"  ng-repeat="s in i.categorys">
+                        <h5>
+                            <span class="glyphicon glyphicon-adjust"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <a href="#" ng-click="subCategory.ini(i,s)" data-toggle="modal" data-target="#editSubCategoryModal">{{s.name}}</a>
+                            <div class="btn-group btn-group-xs">
+                                <button class="btn btn-default">
+                                    <span class="glyphicon glyphicon-trash" ng-click="subCategory.del(s)"></span>
+                                </button>
+                            </div>
+                            <p class="note">1个月前&nbsp;&nbsp;11小时</p>
+                        </h5>
                 </div>
             </div>
+            <!--添加类目按钮-->
             <div class="row">
                 <div class="col-md-12">
                     <div class="btn-group btn-group-lg">
-                        <button class="btn btn-default">
+                        <button class="btn btn-default" ng-click="category.ini()" data-toggle="modal" data-target="#editCategoryModal">
                             <span class="glyphicon glyphicon-plus"></span>
                         </button>
                     </div>
@@ -97,31 +59,48 @@
     </div>
 
     <!--编辑类目-->
-    <div id="editCategoryModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div id="editCategoryModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">名称</span>
+                        <input type="text" class="form-control" placeholder="类目名称" ng-model="category.name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default closeEditCategoryModal">关闭</button>
+                    <button type="button" class="btn btn-primary closeEditCategoryModal" ng-click="category.save()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--编辑子类目-->
+    <div id="editSubCategoryModal" class="modal fade" tabindex="-1" role="dialog"  aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="input-group">
                         <span class="input-group-addon">父类</span>
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                            Dropdown
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1_SubCategory" data-toggle="dropdown">
+                            {{subCategory.currParent.name}}
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1_SubCategory">
+                            <li role="presentation" ng-repeat="x in categorys" ng-click="subCategory.currParent = x">
+                                <a role="menuitem" tabindex="-1" href="#">{{x.name}}</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">名称</span>
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="text" class="form-control" placeholder="子类名称" ng-model="subCategory.name">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default closeEditCategoryModal">关闭</button>
-                    <button type="button" class="btn btn-primary closeEditCategoryModal">保存</button>
+                    <button type="button" class="btn btn-default closeSubEditCategoryModal">关闭</button>
+                    <button type="button" class="btn btn-primary closeSubEditCategoryModal" ng-click="subCategory.save()">保存</button>
                 </div>
             </div>
         </div>
@@ -130,6 +109,9 @@
         $(document).ready(function(){
             $(".closeEditCategoryModal").click(function(){
                 $('#editCategoryModal').modal('hide');
+            });
+            $(".closeSubEditCategoryModal").click(function(){
+                $('#editSubCategoryModal').modal('hide');
             });
         });
     </script>
