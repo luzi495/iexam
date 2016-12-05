@@ -2,15 +2,15 @@
 	<div class="panel-heading">
 		<div class="pull-right btn-group">
 			<button class="btn btn-default"
-				ng-click="show_page_glyph2=!show_page_glyph2">
-				<span class="glyphicon glyphicon-minus" ng-hide="show_page_glyph2"></span>
-				<span class="glyphicon glyphicon-plus" ng-hide="!show_page_glyph2"></span>
+				ng-click="">
+				<span class="glyphicon glyphicon-cog"></span>
 			</button>
 		</div>
-		<h3 class="panel-title">目录</h3>
-
-		<div style="clear: both;"></div>
+		<ul class="panel-title nav nav-pills">
+			<li ng-click="" data-toggle="modal" data-target="#categoryModal"><a href="#" >目录</a></li>
+		</ul>
 	</div>
+	<!--单元树-->
 	<div class="panel-body" ng-hide="show_page_glyph2">
 		<!-- as a Dom element -->
 		<treecontrol class="tree-boot" tree-model="dataForTheTree"
@@ -19,8 +19,8 @@
 		<div ng-mouseover="node.mouseover=true"
 			ng-mouseleave="node.mouseover=false">
 			<label ng-hide="node.modTitle">{{node.title}}</label>
-			<textarea ng-model="node.title" ng-hide="!node.modTitle"
-				ng-click="$event.stopPropagation();"></textarea>
+			<input ng-model="node.title" ng-hide="!node.modTitle"
+				ng-click="$event.stopPropagation();"></input>
 
 			<div class="btn-group btn-group-xs"
 				ng-click="$event.stopPropagation();" ng-hide="!node.mouseover">

@@ -4,7 +4,7 @@
 myApp.controller('TreeCtrl', function ($scope, $http, $sessionStorage, uuid2, toAllMsg) {
     /* 装载数据 */
     $scope.dataForTheTree = [
-        { "title": "我的工程", "id": "0", "children": [], states: [] }
+        { "title": "我的单元", "id": "0", "children": [] }
     ];
     if (angular.isUndefined($sessionStorage.datas_85422)) {
 //        $http({method: 'GET', url: 'js/data.json'}).
@@ -18,10 +18,10 @@ myApp.controller('TreeCtrl', function ($scope, $http, $sessionStorage, uuid2, to
     }
 
     /*保存数据*/
-    toAllMsg.receive(function (d, data) {
-        $sessionStorage.datas_85422 = angular.copy($scope.dataForTheTree);
-        console.log($sessionStorage.datas_85422 );
-    }, "save");
+//    toAllMsg.receive(function (d, data) {
+//        $sessionStorage.datas_85422 = angular.copy($scope.dataForTheTree);
+//        console.log($sessionStorage.datas_85422 );
+//    }, "save");
 
     function rmNode(nodeId, node) {
         for (var i = 0; i < node.children.length; i++) {
@@ -38,13 +38,13 @@ myApp.controller('TreeCtrl', function ($scope, $http, $sessionStorage, uuid2, to
     }
 
     $scope.showSelected = function (sel) {
-        console.log("selected " + sel.states);
+        console.log("selected " + sel.id);
         toAllMsg.send(sel.states, "changeStates");
         /* all data */
         toAllMsg.send($scope.dataForTheTree, "changeData");
     };
     $scope.addChildNode = function (node) {
-        node.children.push({ "title": node.title + "副本", "id": uuid2.newuuid(), "children": [], states: []});
+        node.children.push({ "title": node.title + "副本", "id": uuid2.newuuid(), "children": []});
     };
     $scope.removeNode = function (node) {
         rmNode(node.id, $scope.dataForTheTree[0]);

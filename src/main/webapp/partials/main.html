@@ -1,0 +1,56 @@
+<!--问题-->
+<div class="row">
+    <div class="col-md-8">
+        <textarea class="form-control"></textarea>
+    </div>
+    <div class="col-md-4">
+        <div class="btn-group">
+            <button class="btn btn-default">
+                对比标准答案
+            </button>
+            <button class="btn btn-default">
+                对比近似答案
+            </button>
+        </div>
+        <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-trash"></span>
+        </button>
+        <div class="note">用时 : 最少2.1分，上次3分，本次1.2分</div>
+    </div>
+</div>
+<!--答案-->
+<div class="row">
+    <div class="col-md-3">
+        <div class="btn-group">
+            <button class="btn btn-default">
+                很对
+            </button>
+            <button class="btn btn-default">
+                及格
+            </button>
+            <button class="btn btn-default">
+                错误
+            </button>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <textarea class="form-control"></textarea>
+    </div>
+</div>
+<!--增加-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="btn-group btn-group-lg">
+            <button class="btn btn-default">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $(function () {
+            $('textarea').flexText();
+        });
+    });
+</script>

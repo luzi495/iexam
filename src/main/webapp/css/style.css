@@ -1,0 +1,10 @@
+.note{
+    color:darkgray;
+    font-weight: 400;
+}
+h3 .note{
+    font-size: medium;
+ }
+h5 .note{
+    font-size: x-small;
+}

@@ -1,13 +1,15 @@
 <!doctype html>
 <html style="height: 100%;">
 <head>
-<meta charset="UTF-8">
-<title>index</title>
-<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css"
-	rel="stylesheet">
-<link href="css/tree-control.css" rel="stylesheet">
-<link href="css/tree-control-attribute.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>index</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css"
+		rel="stylesheet">
+	<link href="css/tree-control.css" rel="stylesheet">
+	<link href="css/tree-control-attribute.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/jquery.flexText.css" rel="stylesheet">
 </head>
 
 <body style="height: 100%;">
@@ -44,6 +46,22 @@
 				</div>
 			</div>
 		</div>
+		<!--Category-->
+		<div class="modal fade" id="categoryModal" tabindex="-2" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<!--<div class="modal-header">-->
+						<!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+						<!--<h4 class="modal-title" id="categoryModalLabel">类目</h4>-->
+					<!--</div>-->
+					<div class="modal-body" ng-include="'partials/category.html'"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- jquery -->
@@ -53,6 +71,7 @@
 	<script
 		src="http://cdn.bootcss.com/angular-tree-control/0.2.28/angular-tree-control.js"></script>
 	<script src="js/angular-uuid2.js"></script>
+	<script src="js/jquery.flexText.js"></script>
 	<!-- https://github.com/gsklee/ngStorage -->
 	<script src="http://cdn.bootcss.com/ngStorage/0.3.11/ngStorage.js"></script>
 
