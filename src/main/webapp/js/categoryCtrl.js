@@ -103,4 +103,8 @@ myApp.controller('CategoryCtrl', function ($scope,uuid2,toAllMsg, $timeout) {
             this.currParent.categorys.remove(o);
         }
     };
+    // 选择某个子类目
+    $scope.onCategoryselected = function(o){
+        console.log('selected category:'+ o.name);
+    };
 });

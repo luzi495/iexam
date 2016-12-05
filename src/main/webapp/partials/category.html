@@ -36,7 +36,8 @@
                         <h5>
                             <span class="glyphicon glyphicon-adjust"></span>
                             <span class="glyphicon glyphicon-star"></span>
-                            <a href="#" ng-click="subCategory.ini(i,s)" data-toggle="modal" data-target="#editSubCategoryModal">{{s.name}}</a>
+                            <a href="#" ng-click="subCategory.ini(i,s)" data-toggle="modal" data-target="#editSubCategoryModal" ng-show="editting">{{s.name}}</a>
+                            <a href="#" ng-click="onCategoryselected(s)" ng-hide="editting" data-dismiss="modal">{{s.name}}</a>
                             <div class="btn-group btn-group-xs" ng-show="editting">
                                 <button class="btn btn-default">
                                     <span class="glyphicon glyphicon-trash" ng-click="subCategory.del(s)"></span>
