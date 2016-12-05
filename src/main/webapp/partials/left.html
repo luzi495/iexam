@@ -18,6 +18,8 @@
 			selected-node="node1">
 		<div ng-mouseover="node.mouseover=true"
 			ng-mouseleave="node.mouseover=false">
+			<span class="glyphicon glyphicon-adjust"></span>
+			<span class="glyphicon glyphicon-star"></span>
 			<label ng-hide="node.modTitle">{{node.title}}</label>
 			<input ng-model="node.title" ng-hide="!node.modTitle"
 				ng-click="$event.stopPropagation();"></input>
