@@ -26,6 +26,7 @@ myApp.controller('CategoryCtrl', function ($scope,uuid2,toAllMsg, datasource) {
                 $scope.categorys.push({
                     id: uuid2.newuuid(),
                     name:this.name,
+                    canDel:true,
                     categorys:[]
                 });
             }else{
@@ -60,6 +61,7 @@ myApp.controller('CategoryCtrl', function ($scope,uuid2,toAllMsg, datasource) {
                 // 添加类目
                 this.currParent.categorys.push({
                     id: uuid2.newuuid(),
+                    canDel:true,
                     name:this.name,
                 });
             }else{

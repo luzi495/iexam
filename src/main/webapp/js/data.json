@@ -8,6 +8,7 @@
       "costTime": 100,
       "tbd": true,
       "fine": true,
+      "canDel":false,
       "categorys": [
         {
           "id": "1",
@@ -15,7 +16,8 @@
           "recentDate": "2016-12-2",
           "costTime": 101,
           "tbd": true,
-          "fine": false
+          "fine": false,
+          "canDel":false
         }
       ]
     }

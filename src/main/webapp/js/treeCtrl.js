@@ -1,9 +1,9 @@
 /**
  * Created by luzi on 2016/9/4.
  */
-myApp.controller('TreeCtrl', function ($scope, $http, $sessionStorage, uuid2, toAllMsg) {
+myApp.controller('TreeCtrl', function ($scope, $http, $sessionStorage, uuid2, toAllMsg,datasource) {
     // 类目
-    $scope.category = {name:"类目11"};
+    $scope.category = datasource.recentSubCategory();
     toAllMsg.receive(function(d,data){
         $scope.category = data;
     },"changeCategory");

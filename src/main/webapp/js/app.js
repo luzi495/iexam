@@ -15,6 +15,7 @@ myApp.factory('toAllMsg', function ($rootScope) {
 // 数据访问
 myApp.factory('datasource', function ($http) {
     let dataVar;
+    let recentSubCategory;
 
     function getData() {
         if (angular.isUndefined(dataVar)) {
@@ -39,6 +40,17 @@ myApp.factory('datasource', function ($http) {
         allCategory: function () {
             getData();
             return dataVar.categorys;
+        },
+        // 获得最近访问的子类目
+        recentSubCategory:function(subCategory){
+            if(!angular.isUndefined(subCategory)){
+                recentSubCategory = subCategory;
+            }
+            if(angular.isUndefined(recentSubCategory)){
+                getData();
+                recentSubCategory = dataVar.categorys[0].categorys[0];
+            }
+            return recentSubCategory;
         }
     };
 });

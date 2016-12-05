@@ -22,7 +22,7 @@
                         <label class="note">1个月前&nbsp;&nbsp;11小时</label>
                         &nbsp;&nbsp;
                         <span class="btn-group" ng-show="editting">
-                            <button class="btn btn-default" ng-click="category.del(i)">
+                            <button class="btn btn-default" ng-click="category.del(i)" ng-show="i.canDel">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
                             <button class="btn btn-default" ng-click="subCategory.ini(i)"  data-toggle="modal" data-target="#editSubCategoryModal">
@@ -39,7 +39,7 @@
                             <a href="#" ng-click="subCategory.ini(i,s)" data-toggle="modal" data-target="#editSubCategoryModal" ng-show="editting">{{s.name}}</a>
                             <a href="#" ng-click="onCategoryselected(s)" ng-hide="editting" data-dismiss="modal">{{s.name}}</a>
                             <div class="btn-group btn-group-xs" ng-show="editting">
-                                <button class="btn btn-default">
+                                <button class="btn btn-default" ng-show="s.canDel">
                                     <span class="glyphicon glyphicon-trash" ng-click="subCategory.del(s)"></span>
                                 </button>
                             </div>
