@@ -106,5 +106,6 @@ myApp.controller('CategoryCtrl', function ($scope,uuid2,toAllMsg, $timeout) {
     // 选择某个子类目
     $scope.onCategoryselected = function(o){
         console.log('selected category:'+ o.name);
+        toAllMsg.send(o,"changeCategory");
     };
 });
