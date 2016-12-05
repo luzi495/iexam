@@ -1,0 +1,135 @@
+    <div class="panel-heading">
+        <div class="pull-right btn-group">
+            <button class="btn btn-default">
+                <span class="glyphicon glyphicon-cog"></span>
+            </button>
+        </div>
+        <!--<ul class="panel-title nav nav-pills">-->
+            <!--<li>维护类目</li>-->
+        <!--</ul>-->
+    </div>
+    <div class="panel-body" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>
+                        <span class="glyphicon glyphicon-adjust"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <a href="#" data-toggle="modal" data-target="#editCategoryModal">类目1</a>
+                        &nbsp;&nbsp;
+                        <label class="note">1个月前&nbsp;&nbsp;11小时</label>
+                        &nbsp;&nbsp;
+                        <span class="btn-group">
+                            <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </span>
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>
+                        <span class="glyphicon glyphicon-adjust"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <a href="#" >子目录1</a>
+                        <div class="btn-group btn-group-xs">
+                            <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </div>
+                        <p class="note">1个月前&nbsp;&nbsp;11小时</p>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <span class="glyphicon glyphicon-adjust"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <a href="#" >子目录2</a>
+                        <div class="btn-group btn-group-xs">
+                            <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </div>
+                        <p class="note">1个月前&nbsp;&nbsp;11小时</p>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <span class="glyphicon glyphicon-adjust"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <a href="#" >子目录3</a>
+                        <div class="btn-group btn-group-xs">
+                            <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </div>
+                        <p class="note">1个月前&nbsp;&nbsp;11小时</p>
+                    </h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>
+                        <span class="glyphicon glyphicon-adjust"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <a href="#" >子目录4</a>
+                        <div class="btn-group btn-group-xs">
+                            <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </div>
+                        <p class="note">1个月前&nbsp;&nbsp;11小时</p>
+                    </h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-group btn-group-lg">
+                        <button class="btn btn-default">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--编辑类目-->
+    <div id="editCategoryModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">父类</span>
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                            Dropdown
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">名称</span>
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default closeEditCategoryModal">关闭</button>
+                    <button type="button" class="btn btn-primary closeEditCategoryModal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $(".closeEditCategoryModal").click(function(){
+                $('#editCategoryModal').modal('hide');
+            });
+        });
+    </script>
