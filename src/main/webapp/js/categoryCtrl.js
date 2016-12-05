@@ -1,39 +1,12 @@
 /**
  * Created by Administrator on 2016/12/5.
  */
-myApp.controller('CategoryCtrl', function ($scope,uuid2,toAllMsg, $timeout) {
+myApp.controller('CategoryCtrl', function ($scope,uuid2,toAllMsg, datasource) {
     console.log('CategoryCtrl ini');
     // 是否是编辑状态
     $scope.editting = false;
     // 类目数据
-    $scope.categorys = [
-        {
-            id:'0',
-            name:'leimu類目1',
-            /*最近访问日期*/
-            recentDate:'2016-12-1',
-            /*用时，单位分钟*/
-            costTime:100,
-            /*待完成*/
-            tbd:true,
-            /*成绩优秀*/
-            fine:true,
-            categorys:[
-                // {
-                //     id:'1',
-                //     name:'子類目1',
-                //     /*最近访问日期*/
-                //     recentDate:'2016-12-2',
-                //     /*用时，单位分钟*/
-                //     costTime:101,
-                //     /*待完成*/
-                //     tbd:true,
-                //     /*成绩优秀*/
-                //     fine:false
-                // }
-            ]
-        }
-    ];
+    $scope.categorys = datasource.allCategory();
     // 编辑类目
     $scope.category = {
         name:'',
