@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "categorys": [
+    {
+      "id": "0",
+      "name": "class1",
+      "recentDate": "2016-12-1",
+      "costTime": 100,
+      "tbd": true,
+      "fine": true,
+      "categorys": [
+        {
+          "id": "1",
+          "name": "sub class1",
+          "recentDate": "2016-12-2",
+          "costTime": 101,
+          "tbd": true,
+          "fine": false
+        }
+      ]
+    }
+  ]
+}
