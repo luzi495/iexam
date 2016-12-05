@@ -1,6 +1,6 @@
     <div class="panel-heading">
         <div class="pull-right btn-group">
-            <button class="btn btn-default">
+            <button class="btn"  ng-class="{true:'btn-primary',false:'btn-default'}[editting]" ng-click="editting = !editting">
                 <span class="glyphicon glyphicon-cog"></span>
             </button>
         </div>
@@ -16,15 +16,16 @@
                     <h3>
                         <span class="glyphicon glyphicon-adjust"></span>
                         <span class="glyphicon glyphicon-star"></span>
-                        <a href="#" data-toggle="modal" data-target="#editCategoryModal" ng-click="category.ini(i)">{{i.name}}</a>
+                        <a href="#" data-toggle="modal" data-target="#editCategoryModal" ng-click="category.ini(i)"ng-show="editting">{{i.name}}</a>
+                        <label ng-hide="editting">{{i.name}}</label>
                         &nbsp;&nbsp;
                         <label class="note">1个月前&nbsp;&nbsp;11小时</label>
                         &nbsp;&nbsp;
-                        <span class="btn-group">
+                        <span class="btn-group" ng-show="editting">
                             <button class="btn btn-default" ng-click="category.del(i)">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
-                            <button class="btn btn-default" ng-click="subCategory.ini(i)" data-toggle="modal" data-target="#editSubCategoryModal">
+                            <button class="btn btn-default" ng-click="subCategory.ini(i)"  data-toggle="modal" data-target="#editSubCategoryModal">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </button>
                         </span>
@@ -36,7 +37,7 @@
                             <span class="glyphicon glyphicon-adjust"></span>
                             <span class="glyphicon glyphicon-star"></span>
                             <a href="#" ng-click="subCategory.ini(i,s)" data-toggle="modal" data-target="#editSubCategoryModal">{{s.name}}</a>
-                            <div class="btn-group btn-group-xs">
+                            <div class="btn-group btn-group-xs" ng-show="editting">
                                 <button class="btn btn-default">
                                     <span class="glyphicon glyphicon-trash" ng-click="subCategory.del(s)"></span>
                                 </button>
@@ -46,7 +47,7 @@
                 </div>
             </div>
             <!--添加类目按钮-->
-            <div class="row">
+            <div class="row" ng-show="editting">
                 <div class="col-md-12">
                     <div class="btn-group btn-group-lg">
                         <button class="btn btn-default" ng-click="category.ini()" data-toggle="modal" data-target="#editCategoryModal">

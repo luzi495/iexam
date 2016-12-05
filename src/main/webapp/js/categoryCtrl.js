@@ -3,6 +3,8 @@
  */
 myApp.controller('CategoryCtrl', function ($scope,uuid2,toAllMsg, $timeout) {
     console.log('CategoryCtrl ini');
+    // 是否是编辑状态
+    $scope.editting = false;
     // 类目数据
     $scope.categorys = [
         {
